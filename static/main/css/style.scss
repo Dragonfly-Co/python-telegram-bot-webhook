@@ -1,0 +1,237 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+ul[class],
+ol[class] {
+  padding: 0;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+ul[class],
+ol[class] {
+  list-style: none;
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+// zero style ^
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+$base-color: #2fbbe6;
+$base-color-hover: #23afda;
+$base-shadow-color: rgba(0, 0, 0, .1);
+$base-hover-shadow-color: rgba(0, 0, 0, .5);
+
+.header {
+    position: sticky;
+    height: 80px;
+    box-shadow: 0 0 25px $base-shadow-color;
+
+    &__content-wrapper {
+        height: 100%;
+        width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__hamburger {
+        display: none;
+        position: absolute;
+        z-index: 1000;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+        background-color: transparent;
+        background-image: url("https://ljc-dev.github.io/testing0/ham.svg");
+        background-size: 100%;
+    }
+
+    &__hamburger:focus {
+        outline: none;
+        transform: scale(1.1);
+        box-shadow: rgba(100, 100, 100, .5);
+    }
+
+    &__logo {
+    }
+
+    &__controls {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        align-items: center;
+    }
+
+    &__link {
+        background-color: unset;
+        border: none;
+        font-size: 1em;
+        padding: 10px 40px;
+        background-color: $base-color;
+        margin: 0 0 0 10px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition-duration: 400ms;
+    }
+    
+    &__link:hover {
+        background-color: $base-color-hover;
+    }
+
+    &__link:focus {
+        outline: none;
+        box-shadow: 0 5px 15px $base-hover-shadow-color;
+        translate: scale(0.95);
+    }
+}
+.container {
+    width: 1200px;
+    padding: 20px;
+    margin: 0 auto;
+    // background-color: whitesmoke;
+
+    .graph-wrapper {
+        width: 100%;
+        height: 25vh;
+    }
+
+    .content-header {
+        font-size: 1.5em;
+        margin: 0 0 0.4em 0;
+        font-weight: 400;
+    }
+}
+.footer {
+    width: 100%;
+    min-height: 200px;
+    background-color: whitesmoke;
+}
+
+
+@media(max-width: 1200px) {
+    .container,
+    .header__content-wrapper {
+        width: 1024px;
+    }
+}
+@media(max-width: 1024px) {
+    .container,
+    .header__content-wrapper {
+        width: 968px;
+    }
+    .header__content-wrapper {
+        margin: 0;
+        padding: 0;
+    }
+    .header__logo {
+        margin-left: 30px;
+    }
+    .header__hamburger {
+        display: block;
+        transition-duration: 400ms;
+    } 
+    .header__controls {
+        position: fixed;
+        top: 0;
+        width: 0;
+        background-color: rgba(0, 0, 0, .95);
+        width: 100%;
+        transform: translateY(-100%);
+        padding: 40px;
+        justify-content: start;
+        padding-top: 80px;
+        align-items: flex-start;
+        flex-direction: column;
+        transition-duration: 400ms;
+    }
+    .header__controls li:first-child {
+        margin-top: 80px;
+    }
+    .header__controls li {
+        display: block;
+        width: calc(100% - 100px);
+        margin: 0 40px 40px;
+        padding: 0;
+    }
+    .header__link {
+        display: block;
+        text-align: center;
+        background-color: rgba(70, 70, 70, 1);
+        width: 100%;
+        font-size: 2.5em;
+        padding: 40px 0;
+    }
+    .header__controls-active {
+        transition-duration: 400ms;
+        transform: translateY(0);
+    }
+    .header__hamburger-active {
+        background: white;
+        background-image: url('../img/close.svg');
+        background-size: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+    }
+}
+@media(max-width: 968px) {
+    .container,
+    .header__content-wrapper {
+        width: 100%;
+    }
+    .header__logo {
+        margin-left: 20px;
+    }
+}
+
+@media(max-width: 450px) {
+    .header__link {
+        font-size: 1.4em;
+        padding: 20px 0;
+    }
+}

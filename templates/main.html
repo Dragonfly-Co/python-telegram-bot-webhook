@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main/css/style.min.css') }}">
+    <title>Panel</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header__content-wrapper">
+            <div class="header__logo">logo</div>
+            <button class="header__hamburger"></button>
+            <ul class="header__controls">
+                <li><a class="header__link">First</a></li>
+                <li><a class="header__link">Second</a></li>
+            </ul>
+        </div>
+    </header>
+    <main class="container">
+        <h2 class="content-header">Нагруженность за последнюю неделю:</h2>
+        <div class="graph-wrapper">
+            <canvas id="usage_chart"></canvas>
+        </div>
+
+
+    </main>
+    <footer class="footer">
+
+    </footer>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+<script src="{{ url_for('static', filename='main/js/chart.js') }}"></script>
+<script src="{{ url_for('static', filename='main/js/hamburger.js') }}"></script>
+</html>

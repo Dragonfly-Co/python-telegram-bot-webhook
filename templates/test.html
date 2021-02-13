@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>press</button>
+</body>
+<script>
+    async function send_message() {
+        return await fetch(
+        'http://localhost:1234/get', 
+        {
+            mode: 'no-cors', 
+            // method: "POST",
+        }
+        ).then(response => {
+            return response.text(); 
+        }).then(content => {
+            return JSON.parse(content).code;
+        });
+    } 
+    document.querySelector('button').addEventListener('click', send_message)
+</script>
+</html>
